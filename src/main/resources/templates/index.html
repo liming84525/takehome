@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>广告投放平台</title>
+    <script th:src="@{jquery.min.js}"></script>
+    <!--<script th:src="@{echart.min.js}"></script>-->
+    <script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" th:href="@{bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{fontawesome/css/font-awesome.min.css}"/>
+    <style>
+
+        .navbar-inner {
+            margin-bottom: 0px;
+            min-height: 40px;
+            padding-right: 20px;
+            padding-left: 20px;
+            background: #273236;
+            filter: none;
+            text-shadow: 1px 1px 1px #0a0c0e;
+            border: none;
+            color: #fff;
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            border-radius: 0px;
+            height: 75px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 75px;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+            display: block;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background-color: #273236;
+        }
+
+        body {
+            padding-top: 75px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .main {
+            padding-left: 20px;
+            padding-right: 20px;
+            /*padding-top: 30px;*/
+            background: #e9f0f5;
+        }
+
+        .navbar {
+            border-bottom: 0px solid transparent;
+        }
+
+        .panel-group .panel, .panel {
+            border-radius: 0;
+        }
+
+        .panel:nth-child(n) {
+            background-color: #273236;
+        }
+
+        .panel:nth-child(2n) {
+            background-color: #1f272a;
+        }
+
+        .panel .panel-memu {
+            -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .05);
+            box-shadow: 0 0 0 rgba(0, 0, 0, .05);
+            border: 0;
+        }
+
+        .panel-heading {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .pannel-heading .submenu:before {
+            border-right-color: red;
+            border-right:20px
+        }
+
+        .panel-group .panel-heading + .panel-collapse > .panel-body {
+            border-top: 0;
+        }
+
+        a {
+            color: #788588;
+            font-size: 15px;
+        }
+
+        a:hover, a:focus {
+            color: #788588;
+            text-decoration: none;
+            outline: none;
+        }
+
+        a:hover{
+            color: white;
+        }
+
+        .panel-body {
+            background-color: #273236;
+            padding:0;
+            padding-left: 25px;
+        }
+
+        .panel-group .panel + .panel {
+            margin-top: 0;
+        }
+
+        h4, h5 {
+            height:25px;
+            line-height: 25px;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        .panel-group {
+            margin-bottom: 0;
+        }
+
+        .submenu:hover {
+            padding-left:11px;
+            border-left:4px solid #598CDA;
+        }
+
+        .dropdown {
+            padding: 5px 30px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">
+                <span>广告投放平台</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-2 col-md-3 sidebar">
+            <!--menu -->
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-memu ">
+                    <a href="#panel1" data-toggle="collapse" data-parent="#accordion">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">首页</h4>
+                        </div>
+                    </a>
+                    <div class="panel-collapse collapse in" id="panel1">
+                        <div class="panel-body"></div>
+                    </div>
+                </div>
+                <div class="panel panel-memu ">
+                    <a href="#panel2" data-toggle="collapse" data-parent="#accordion">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">综合数据 <i class="icon-angle-down pull-right icon-large"></i></h4>
+                        </div>
+                    </a>
+                    <div class="panel-collapse collapse pppp" id="panel2">
+                        <div class="panel-body">
+                            <!--sub menu-->
+                            <div class="panel-group">
+                                <div class="panel" style="border-left:2px solid #303D3E">
+                                    <a href="#">
+                                        <div class="panel-heading submenu">
+                                            <h5 class="panel-title">检测范围</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="panel" style="border-left:2px solid #303D3E">
+                                    <a href="#">
+                                        <div class="panel-heading submenu">
+                                            <h5 class="panel-title">开机数据</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="panel" style="border-left:2px solid #303D3E">
+                                    <a href="#">
+                                        <div class="panel-heading submenu">
+                                            <h5 class="panel-title">直播数据</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-memu ">
+                    <a href="#panel3" data-toggle="collapse" data-parent="#accordion">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">xxx数据 <i class="icon-angle-down pull-right icon-large"></i></h4>
+                        </div>
+                    </a>
+                    <div class="panel-collapse collapse pppp" id="panel3">
+                        <div class="panel-body">123</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-10 col-lg-offset-2 col-md-9 col-md-offset-3 main">
+
+                <div class="row" style="box-shadow: 1px 1px 1px #B2B9BC; height:45px; background-color:transparent; marigin-right:-70px; margin-left: -40px;">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">时间段
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">3</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">4</a></li>
+                        </ul>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="panel panel-data">
+                    <a href="#panel1" data-toggle="collapse" data-parent="#accordion">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">首页</h4>
+                        </div>
+                    </a>
+                    <div class="panel-body">123</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-data">
+                        <a href="#panel1" data-toggle="collapse" data-parent="#accordion">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">首页</h4>
+                            </div>
+                        </a>
+                        <div class="panel-body">123</div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="panel panel-data">
+                        <a href="#panel1" data-toggle="collapse" data-parent="#accordion">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">首页</h4>
+                            </div>
+                        </a>
+                        <div class="panel-body">123</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+
+        $(".pppp").on({
+            'hide.bs.collapse': function () {
+                $(this).siblings("a").find(".panel-heading > .panel-title > i").removeClass("icon-angle-up").addClass("icon-angle-down")
+            },
+            'show.bs.collapse': function () {
+                $(this).siblings("a").find(".panel-heading > .panel-title > i").removeClass("icon-angle-down").addClass("icon-angle-up")
+            }
+        })
+    })
+
+</script>
+</body>
+</html>
+
